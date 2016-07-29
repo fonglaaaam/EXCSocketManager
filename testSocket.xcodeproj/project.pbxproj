@@ -7,15 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		408185BD1D49E7B70092C363 /* EMSocketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 408185BC1D49E7B70092C363 /* EMSocketRequest.m */; };
+		408185C01D49E9570092C363 /* EXCSocketRequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 408185BF1D49E9570092C363 /* EXCSocketRequestQueue.m */; };
+		408185C31D49E9B40092C363 /* EXCSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 408185C21D49E9B40092C363 /* EXCSocketManager.m */; };
 		40B5C69B1D35CC3C00AF278C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B5C69A1D35CC3C00AF278C /* main.m */; };
 		40B5C69E1D35CC3C00AF278C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B5C69D1D35CC3C00AF278C /* AppDelegate.m */; };
 		40B5C6A11D35CC3C00AF278C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B5C6A01D35CC3C00AF278C /* ViewController.m */; };
 		40B5C6A41D35CC3C00AF278C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5C6A21D35CC3C00AF278C /* Main.storyboard */; };
 		40B5C6A61D35CC3C00AF278C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B5C6A51D35CC3C00AF278C /* Assets.xcassets */; };
 		40B5C6A91D35CC3C00AF278C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5C6A71D35CC3C00AF278C /* LaunchScreen.storyboard */; };
+		CB2D5BFE22A74EB3BDF39754 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E581737152637E5AC6D7B09 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3484EF0BD574D553C4C63D0D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		3E581737152637E5AC6D7B09 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		408185BB1D49E7B70092C363 /* EMSocketRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMSocketRequest.h; sourceTree = "<group>"; };
+		408185BC1D49E7B70092C363 /* EMSocketRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMSocketRequest.m; sourceTree = "<group>"; };
+		408185BE1D49E9560092C363 /* EXCSocketRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXCSocketRequestQueue.h; sourceTree = "<group>"; };
+		408185BF1D49E9570092C363 /* EXCSocketRequestQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXCSocketRequestQueue.m; sourceTree = "<group>"; };
+		408185C11D49E9B40092C363 /* EXCSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXCSocketManager.h; sourceTree = "<group>"; };
+		408185C21D49E9B40092C363 /* EXCSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXCSocketManager.m; sourceTree = "<group>"; };
 		40B5C6961D35CC3C00AF278C /* testSocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testSocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B5C69A1D35CC3C00AF278C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		40B5C69C1D35CC3C00AF278C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +38,7 @@
 		40B5C6A51D35CC3C00AF278C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40B5C6A81D35CC3C00AF278C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40B5C6AA1D35CC3C00AF278C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C538440B2E647DD10E9C879 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB2D5BFE22A74EB3BDF39754 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +58,8 @@
 			children = (
 				40B5C6981D35CC3C00AF278C /* testSocket */,
 				40B5C6971D35CC3C00AF278C /* Products */,
+				6EBB59F8BCA56957FE78FACB /* Pods */,
+				B68B1B962A17A15271844E60 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +83,12 @@
 				40B5C6A71D35CC3C00AF278C /* LaunchScreen.storyboard */,
 				40B5C6AA1D35CC3C00AF278C /* Info.plist */,
 				40B5C6991D35CC3C00AF278C /* Supporting Files */,
+				408185BB1D49E7B70092C363 /* EMSocketRequest.h */,
+				408185BC1D49E7B70092C363 /* EMSocketRequest.m */,
+				408185BE1D49E9560092C363 /* EXCSocketRequestQueue.h */,
+				408185BF1D49E9570092C363 /* EXCSocketRequestQueue.m */,
+				408185C11D49E9B40092C363 /* EXCSocketManager.h */,
+				408185C21D49E9B40092C363 /* EXCSocketManager.m */,
 			);
 			path = testSocket;
 			sourceTree = "<group>";
@@ -79,6 +101,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6EBB59F8BCA56957FE78FACB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4C538440B2E647DD10E9C879 /* Pods.debug.xcconfig */,
+				3484EF0BD574D553C4C63D0D /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B68B1B962A17A15271844E60 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E581737152637E5AC6D7B09 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +125,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40B5C6AD1D35CC3C00AF278C /* Build configuration list for PBXNativeTarget "testSocket" */;
 			buildPhases = (
+				C1F5B6292C85EBEEACDCC1A3 /* Check Pods Manifest.lock */,
 				40B5C6921D35CC3C00AF278C /* Sources */,
 				40B5C6931D35CC3C00AF278C /* Frameworks */,
 				40B5C6941D35CC3C00AF278C /* Resources */,
+				92BA2FFBC2F3710C13253FBC /* Embed Pods Frameworks */,
+				C4254A53E01AFAB2A82E3D25 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,13 +186,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		92BA2FFBC2F3710C13253FBC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1F5B6292C85EBEEACDCC1A3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C4254A53E01AFAB2A82E3D25 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		40B5C6921D35CC3C00AF278C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				40B5C6A11D35CC3C00AF278C /* ViewController.m in Sources */,
+				408185C31D49E9B40092C363 /* EXCSocketManager.m in Sources */,
+				408185BD1D49E7B70092C363 /* EMSocketRequest.m in Sources */,
 				40B5C69E1D35CC3C00AF278C /* AppDelegate.m in Sources */,
+				408185C01D49E9570092C363 /* EXCSocketRequestQueue.m in Sources */,
 				40B5C69B1D35CC3C00AF278C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +354,7 @@
 		};
 		40B5C6AE1D35CC3C00AF278C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C538440B2E647DD10E9C879 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = testSocket/Info.plist;
@@ -272,6 +366,7 @@
 		};
 		40B5C6AF1D35CC3C00AF278C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3484EF0BD574D553C4C63D0D /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = testSocket/Info.plist;
@@ -300,6 +395,7 @@
 				40B5C6AF1D35CC3C00AF278C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
