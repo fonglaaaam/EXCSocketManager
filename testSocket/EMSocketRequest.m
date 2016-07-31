@@ -66,7 +66,10 @@
 @property(nonatomic, strong)NSMutableDictionary   *reciveDataDic;
 @end
 
-@implementation EMSocketRequest
+@implementation EMSocketRequest {
+    BOOL        executing;  // 执行中
+    BOOL        finished;   // 已完成
+}
 
 NSString *ipv6Add = @"";
 
@@ -79,6 +82,9 @@ NSString *ipv6Add = @"";
 - (id)init {
     self = [super init];
     if (self) {
+        executing = NO;
+        finished = NO;
+        
         NSError* err;
         _reciveDataDic = [NSMutableDictionary dictionary];
         
@@ -93,13 +99,11 @@ NSString *ipv6Add = @"";
             if (addresseError) {
                 NSLog(@"");
             }
-            
             for (NSData *addrData in addresseArray) {
                 if ([GCDAsyncSocket isIPv6Address:addrData]) {
                     ipv6Add = [GCDAsyncSocket hostFromAddress:addrData];
                 }
             }
-            
             if (ipv6Add.length == 0) {
                 ipv6Add = APP_SOCKET_HOST;
             }
@@ -111,15 +115,83 @@ NSString *ipv6Add = @"";
 
 //线程开始
 - (void)start{
-    NSError* err;
-    [_socket connectToHost:ipv6Add onPort:APP_SOCKET_PORT error:&err];
-    [[NSRunLoop currentRunLoop]run];
+    
+    if ([self isCancelled])
+    {
+        // Must move the operation to the finished state if it is canceled.
+        [self willChangeValueForKey:@"isFinished"];
+        finished = YES;
+        [self didChangeValueForKey:@"isFinished"];
+        return;
+    }
+    
+    // If the operation is not canceled, begin executing the task.
+    [self willChangeValueForKey:@"isExecuting"];
+    [NSThread detachNewThreadSelector:@selector(main) toTarget:self withObject:nil];
+    executing = YES;
+    [self didChangeValueForKey:@"isExecuting"];
+//    NSError* err;
+//    [_socket connectToHost:ipv6Add onPort:APP_SOCKET_PORT error:&err];
+//    [[NSRunLoop currentRunLoop]run];
+
 }
 
+- (void)main {
+    NSLog(@"main begin");
+    @try {
+        // 必须为自定义的 operation 提供 autorelease pool，因为 operation 完成后需要销毁。
+        @autoreleasepool {
+//            // 提供一个变量标识，来表示需要执行的操作是否完成了，当然，没开始执行之前，为NO
+//            BOOL taskIsFinished = NO;
+//            // while 保证：只有当没有执行完成和没有被取消，才执行自定义的相应操作
+//            while (taskIsFinished == NO && [self isCancelled] == NO){
+//                // 自定义的操作
+//                //sleep(10);  // 睡眠模拟耗时操作
+//                NSLog(@"currentThread = %@", [NSThread currentThread]);
+//                NSLog(@"mainThread    = %@", [NSThread mainThread]);
+//                
+//                // 这里相应的操作都已经完成，后面就是要通知KVO我们的操作完成了。
+//                taskIsFinished = YES;
+//            }
+
+            NSError* err;
+            [_socket connectToHost:ipv6Add onPort:APP_SOCKET_PORT error:&err];
+            [[NSRunLoop currentRunLoop]run];
+        }
+    }
+    @catch (NSException * e) {
+        NSLog(@"Exception %@", e);
+    }
+    NSLog(@"main end");
+}
+
+- (void)completeOperation {
+    [self willChangeValueForKey:@"isFinished"];
+    [self willChangeValueForKey:@"isExecuting"];
+    
+    executing = NO;
+    finished = YES;
+    
+    [self didChangeValueForKey:@"isExecuting"];
+    [self didChangeValueForKey:@"isFinished"];
+}
 
 -(void)cancel{
     [self.socket disconnect];
     self.socket = nil;
+    [self completeOperation];
+}
+
+- (BOOL)isAsynchronous {
+    return YES;
+}
+
+- (BOOL)isExecuting {
+    return executing;
+}
+
+- (BOOL)isFinished {
+    return finished;
 }
 
 - (BOOL)connect  {

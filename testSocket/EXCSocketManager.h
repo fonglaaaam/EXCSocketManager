@@ -16,5 +16,5 @@
 - (void)addRequestConnction:(EMSocketRequest *)connection;
 - (void)cancelRequests;
 + (void)requestWithSocket:(EXCSocketPacket *)packet tag:(long)tag completed:(EXCSocketBlock)completed;
-
++ (NSInteger)requestQueueCount;
 @end

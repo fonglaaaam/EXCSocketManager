@@ -34,18 +34,39 @@
     [self.requestQueue cancelAllOperations];
 }
 
++ (NSInteger)requestQueueCount{
+    EXCSocketManager *manager = [EXCSocketManager SObject];
+    return  manager.requestQueue.operationCount;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _requestQueue = [[EXCSocketRequestQueue alloc]init];
+        _requestQueue.maxConcurrentOperationCount = 5;
+    }
+    return self;
+}
+
 + (void)requestWithSocket:(EXCSocketPacket *)packet tag:(long)tag completed:(EXCSocketBlock)completed{
+    EXCSocketManager *manager = [EXCSocketManager SObject];
+    
     EMSocketRequest *conn = [[EMSocketRequest alloc]init];
     conn.data = packet;
-    __weak typeof(conn) socketOperation = conn;
+    __weak typeof(conn) socketOperation = conn;    
     conn.isConnectBlock = ^(BOOL isConnect){
         if (isConnect) {
-            [socketOperation requestWithSocket:packet tag:10 completed:completed];
+            [socketOperation requestWithSocket:packet tag:10 completed:^(NSString *rst, NSString *rstdes, NSArray *rstinfo) {
+                if (completed) {
+                    completed(rst,rstdes,rstinfo);
+                    [socketOperation cancel];
+                }
+            }];
+        }else{
+            completed(@"FAIL",@"socket disconnect",@[]);
         }
     };
-    EXCSocketManager *manager = [EXCSocketManager SObject];
-    manager.requestQueue = [[EXCSocketRequestQueue alloc]init];
-    manager.requestQueue.maxConcurrentOperationCount = 2;
     [manager addRequestConnction:conn];
 }
 
